@@ -1,0 +1,77 @@
+
+.atas{
+	padding-top: 5px;
+}
+.ataslega{
+	padding-top: 50px;
+	margin-bottom: 50px;
+
+}
+ @font-face {
+         font-family: "raleway";
+         src: url('../fonts/Raleway-Regular.ttf');
+         }
+ }
+.fullwidth-box{
+	min-height:250px; 
+	font-family: 'Open Sans', 
+	sans-serif;
+	padding-top: 50px;
+}
+.footer { 
+	background-color:#0c1a1e; 
+	min-height:350px; 
+	font-family: 'Open Sans', 
+	sans-serif;
+}
+.footerleft { 
+	margin-top:50px; 
+	padding:0 36px; 
+}
+.biru{
+	background-color : #accbff;
+}
+.logo-inverse{
+	color:#0c1a1e;
+}
+.logo-default{
+	color:#fff;
+}
+.logo { 
+	margin-bottom:10px; 
+	font-size:25px; 
+	font-weight:700;
+}
+.footerleft p { 
+	color:#fff; 
+	font-size:12px !important; 
+	font-family: 'Open Sans', sans-serif; 
+	margin-bottom:15px;}
+.paddingtop-bottom {  
+	margin-top:50px;
+}
+.footer-ul { 
+	list-style-type:none;  
+	padding-left:0px; 
+	margin-left:2px;
+}
+.footer-ul li { 
+	line-height:29px; 
+	font-size:12px;
+}
+.footer-ul li a { 
+	color:#a0a3a4;
+}
+.footer-ul li a:hover { 
+	color:#428aff; 
+}
+
+ 
+ .icon-ul { list-style-type:none !important; margin:0px; padding:0px;}
+ .icon-ul li { line-height:75px; width:100%; float:left;}
+ .icon { float:left; margin-right:5px;}
+ 
+ 
+ .copyright { min-height:40px; background-color:#000000;}
+ .copyright p { text-align:left; color:#FFF; padding:10px 0; margin-bottom:0px;}
+ .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
