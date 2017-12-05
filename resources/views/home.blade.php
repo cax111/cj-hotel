@@ -47,7 +47,7 @@
 										<br/>
 									</div>
 									<div class="col-md-1">
-										<input type="submit" class="form-control btn btn-primary" name="nama">	
+										<input type="submit" class="form-control btn btn-primary" name="ok">	
 									</div>
 								</div>
 							</form>

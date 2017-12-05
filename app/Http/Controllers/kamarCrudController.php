@@ -3,20 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\tamu;
+use Illuminate\Support\Facades\DB;
+use App\kamar;
+use App\jenisKamar;
 use App\akun;
-class tamuCrudController extends Controller
+class kamarCrudController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index(request $request)
     {
-        $datas = tamu::orderBy('id_tamu','DESC')->paginate(14);
-       // $sesi = $request->session()->put('id-tamu',$datas['id_tamu']);
-        return view('data-tamu')->with('datas',$datas);
+        $datas = kamar::select('*')->join('tb_jenis_kamar','tb_jenis_kamar.id_jenis','=','tb_kamar.id_jenis')->orderBy('id_kamar','DESC')->paginate(14);
+        $datas2 = jenisKamar::orderBy('id_jenis','DESC')->paginate(14);
+        return view('data-kamar')->with('datas',$datas)->with('datas2',$datas);
     }
 
     /**
@@ -26,7 +29,8 @@ class tamuCrudController extends Controller
      */
     public function create()
     {
-        return view('tambah-data');
+        $datas2 = jenisKamar::orderBy('id_jenis','DESC')->get();
+        return view('tambah-data-kamar')->with('datas2',$datas2);
     }
 
     /**
@@ -39,27 +43,22 @@ class tamuCrudController extends Controller
     {
         
         /*$this->validate($request, [
-           'no_identitas' => 'required',
-           'nama_tamu' => 'required',
-           'alamat' => 'required',
-           'no_tlp' => 'required',
-           'email' => 'required',
-           'username' => 'required'
-        ]);
-*/      
-         $tambah = new akun();
-         $tambah->email = $request['email'];
-         $tambah->save();
-         $tambah = new tamu();
-         $tambah->id_tamu = $sesi+1;
-         $tambah->no_identitas = $request['noidentitas'];
-         $tambah->nama_tamu = $request['nama'];
-         $tambah->alamat = $request['alamat'];
-         $tambah->no_tlp = $request['nohp'];
-         $tambah->email = $request['email'];
+           'jenis' => 'required',
+           'hargasewa' => 'required',
+           'desc' => 'required',
+           'status' => 'required'
+        ]);*/
+        
+        $datas2 = jenisKamar::orderBy('id_jenis','DESC')->first();
+         $tambah = new kamar();
+         $tambah->id_kamar = $datas2['id_jenis']+1;
+         $tambah->id_jenis = $request['jenis'];
+         $tambah->harga_sewa = $request['hargasewa'];
+         $tambah->deskripsi_kamar = $request['desc'];
+         $tambah->status = "tersedia";
          $tambah->save();
 
-     return redirect()->to('/admin-cj/data-tamu');
+     return redirect()->to('/admin-cj/data-kamar');
     }
 
     /**
@@ -81,7 +80,9 @@ class tamuCrudController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datas2 = jenisKamar::orderBy('id_jenis','DESC')->get();
+        $tampiledit = kamar::where('id_kamar', $id)->first();
+        return view('edit-data-kamar')->with('tampiledit',$tampiledit)->with('datas2',$datas2);
     }
 
     /**
@@ -104,9 +105,9 @@ class tamuCrudController extends Controller
      */
     public function destroy($id)
     { 
-        $hapus = tamu::find($id);
+        $hapus = kamar::find($id);
         $hapus->delete();
 
-        return redirect()->to('/admin-cj/data-tamu');
+        return redirect()->to('/admin-cj/data-kamar');
     }
 }

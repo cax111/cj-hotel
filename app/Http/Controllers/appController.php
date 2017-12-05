@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\akun;
 
 class appController extends Controller
 {
@@ -22,12 +23,29 @@ class appController extends Controller
    {
        return view('about');
    }
-   public function indexAdmin()
+   public function indexAdmin(request $request)
    {
-       return view('dashboard');
+      /*$sesi = $request->session()->get('email');
+      if(empty($sesi)){
+        return redirect()->to('/admin-cj/login');
+      }*/
+      return view('dashboard');
    }
-   /*public function dataTamu()
+   public function login()
    {
-       return view('data-tamu');
-   }*/
+       return view('login');
+   }
+   public function cek(request $request)
+   {
+    $this->validate($request, [
+      'email' => 'required|email',
+      'password' => 'required'
+    ]);
+
+    $sesi = $request->session()->put('email');
+    $login  = akun::where('email','=','$request[email]')->get();
+    echo $login;
+
+    return redirect()->to('/w');
+   }
 }

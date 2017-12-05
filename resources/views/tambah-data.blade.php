@@ -5,7 +5,8 @@
           <h1 class="page-header">Data Tamu</h1>
           <h2 class="sub-header">Tambah Data</h2>
 	          <div class="form-group col-md-8 col-md-offset-2">
-          		<form method="POST">
+          		<form method="POST" action="{{url ('admin-cj/data-tamu/store') }}">
+          		{!! csrf_field() !!}
 				  <label>No. Identitas</label>
 				  <input type="text" class="form-control" name="noidentitas">
 				  <label>Nama Lengkap</label>

@@ -9,6 +9,7 @@
     <title>Halaman Admin</title>
   </head>
   <body>
+
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="atas container-fluid">
         <div class="navbar-header">
@@ -28,7 +29,6 @@
         </div>
       </div>
     </nav>
-
     <div class="container-fluid">
       <div class="row">
         <div class=" col-sm-3 col-md-2 sidebar">
@@ -40,22 +40,16 @@
           <hr/>
           <ul class="nav nav-sidebar">
             <li><a href="/admin-cj/data-tamu">Data Tamu</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
+            <li><a href="/admin-cj/data-kamar">Data Kamar</a></li>
+            <li><a href="/admin-cj/data-booking-kamar">Data Reservasi</a></li>
+            <li><a href="/admin-cj/data-resto">Data Menu Resto</a></li>
+            <li><a href="/admin-cj/data-resto">Data Menu Resto</a></li>
+            <li><a href="/admin-cj/data-transaksi">Data Transaksi</a></li>
           </ul>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           @yield('content')
-        </div>
       </div>
     </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css" >
-    <link rel="stylesheet" type="text/css" href="../../assets/css/dashboard.css" >
-    <link rel="stylesheet" type="text/css" href="../../assets/css/tambahan.css" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/dashboard.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/tambahan.css') }}" >
     <!-- <link rel="icon" href="../../../../favicon.ico"> -->
     <title>Halaman Admin</title>
   </head>
@@ -33,21 +33,18 @@
       <div class="row">
         <div class=" col-sm-3 col-md-2 sidebar">
           <div class="placeholder">
-              <img src="../../assets/img/standar.jpg" class="img-responsive">
+              <img src="{{ asset('assets/img/standar.jpg') }}" class="img-responsive">
               <h4 class="colorname">Lorem Ipsum</h4>
               <span class="colorname">Admin</span>
           </div>
           <hr/>
           <ul class="nav nav-sidebar">
             <li><a href="/admin-cj/data-tamu">Data Tamu</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
+            <li><a href="/admin-cj/data-kamar">Data Kamar</a></li>
+            <li><a href="/admin-cj/data-booking-kamar">Data Reservasi</a></li>
+            <li><a href="/admin-cj/data-resto">Data Menu Resto</a></li>
+            <li><a href="/admin-cj/data-resto">Data Menu Resto</a></li>
+            <li><a href="/admin-cj/data-transaksi">Data Transaksi</a></li>
           </ul>
         </div>
           @yield('content')

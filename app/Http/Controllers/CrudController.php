@@ -12,11 +12,12 @@ class tamuCrudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index(request $request)
     {
-        $datas = tamu::orderBy('id_tamu','DESC')->paginate(14);
-       // $sesi = $request->session()->put('id-tamu',$datas['id_tamu']);
-        return view('data-tamu')->with('datas',$datas);
+        $datas = kamar::orderBy('id_kamar','DESC')->paginate(14);
+        $sesi = $request->session()->put('id-kamar',$datas['id_kamar']);
+        return view('data-kamar')->with('datas',$datas);
     }
 
     /**

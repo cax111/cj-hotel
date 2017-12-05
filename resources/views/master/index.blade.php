@@ -5,14 +5,6 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/tambahan.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script>
-		  $(function() {
-		    $( "#datepicker" ).datepicker();
-		  });
-		</script>
-		  <script>
-		    $(".input-group.date").datepicker({autoclose: true, todayHighlight: true});
-		  </script>
 	</head>
 	<body>
 		<div class="navbar navbar-default">
