@@ -19,7 +19,7 @@ class kamarCrudController extends Controller
     {
         $datas = kamar::select('*')->join('tb_jenis_kamar','tb_jenis_kamar.id_jenis','=','tb_kamar.id_jenis')->orderBy('id_kamar','DESC')->paginate(14);
         $datas2 = jenisKamar::orderBy('id_jenis','DESC')->paginate(14);
-        return view('data-kamar')->with('datas',$datas)->with('datas2',$datas);
+        return view('data-kamar')->with('datas',$datas)->with('datas2',$datas2);
     }
 
     /**
@@ -31,6 +31,10 @@ class kamarCrudController extends Controller
     {
         $datas2 = jenisKamar::orderBy('id_jenis','DESC')->get();
         return view('tambah-data-kamar')->with('datas2',$datas2);
+    }
+    public function createJenis()
+    {
+        return view('tambah-jenis');
     }
 
     /**
@@ -49,13 +53,31 @@ class kamarCrudController extends Controller
            'status' => 'required'
         ]);*/
         
-        $datas2 = jenisKamar::orderBy('id_jenis','DESC')->first();
+        $datas2 = kamar::orderBy('id_kamar','DESC')->first();
          $tambah = new kamar();
-         $tambah->id_kamar = $datas2['id_jenis']+1;
+         $tambah->id_kamar = $datas2['id_jenis'];
          $tambah->id_jenis = $request['jenis'];
          $tambah->harga_sewa = $request['hargasewa'];
          $tambah->deskripsi_kamar = $request['desc'];
          $tambah->status = "tersedia";
+         $tambah->save();
+
+     return redirect()->to('/admin-cj/data-kamar');
+    }
+    public function storeJenis(Request $request)
+    {
+        
+        /*$this->validate($request, [
+           'jenis' => 'required',
+           'hargasewa' => 'required',
+           'desc' => 'required',
+           'status' => 'required'
+        ]);*/
+        
+         $datas2 = jenisKamar::orderBy('id_jenis','DESC')->first();
+         $tambah = new jenisKamar();
+         $tambah->id_jenis = $datas2['id_jenis']+1;
+         $tambah->nama_jenis = $request['namajenis'];
          $tambah->save();
 
      return redirect()->to('/admin-cj/data-kamar');
@@ -84,6 +106,11 @@ class kamarCrudController extends Controller
         $tampiledit = kamar::where('id_kamar', $id)->first();
         return view('edit-data-kamar')->with('tampiledit',$tampiledit)->with('datas2',$datas2);
     }
+    public function editJenis($id)
+    {
+        $tampiledit = jenisKamar::where('id_jenis', $id)->first();
+        return view('edit-jenis')->with('tampiledit',$tampiledit);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -94,7 +121,22 @@ class kamarCrudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = kamar::where('id_kamar', $id)->first();
+        $update->harga_sewa = $request['hargasewa'];
+        $update->deskripsi_kamar = $request['desc'];
+        $update->status = "status";
+        $update->update();
+
+        return redirect()->to('data-kamar');
+    }
+
+    public function updateJenis(Request $request, $id)
+    {
+        $update = jenisKamar::where('id_jenis', $id)->first();
+        $update->nama_jenis = $request['namajenis'];
+        $update->update();
+
+        return redirect()->to('data-kamar');
     }
 
     /**
@@ -106,6 +148,13 @@ class kamarCrudController extends Controller
     public function destroy($id)
     { 
         $hapus = kamar::find($id);
+        $hapus->delete();
+
+        return redirect()->to('/admin-cj/data-kamar');
+    }
+    public function destroyJenis($id)
+    { 
+        $hapus = jenisKamar::find($id);
         $hapus->delete();
 
         return redirect()->to('/admin-cj/data-kamar');

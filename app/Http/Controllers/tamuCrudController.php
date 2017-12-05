@@ -47,11 +47,10 @@ class tamuCrudController extends Controller
            'username' => 'required'
         ]);
 */      
-         $tambah = new akun();
-         $tambah->email = $request['email'];
-         $tambah->save();
+
+         $datas2 = tamu::orderBy('id_tamu','DESC')->first();
          $tambah = new tamu();
-         $tambah->id_tamu = $sesi+1;
+         $tambah->id_tamu = $datas2['id_jenis']+1;
          $tambah->no_identitas = $request['noidentitas'];
          $tambah->nama_tamu = $request['nama'];
          $tambah->alamat = $request['alamat'];
@@ -81,7 +80,8 @@ class tamuCrudController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tampiledit = tamu::where('id_tamu', $id)->first();
+        return view('edit-data-tamu')->with('tampiledit',$tampiledit);
     }
 
     /**
@@ -93,7 +93,14 @@ class tamuCrudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = tamu::where('id_tamu', $id)->first();
+        $update->no_identitas = $request['noidentitas'];
+        $update->nama_tamu = $request['nama'];
+        $update->alamat = $request['alamat'];
+        $update->no_tlp = $request['nohp'];
+        $update->update();
+
+        return redirect()->to('data-tamu');
     }
 
     /**

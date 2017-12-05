@@ -14,7 +14,6 @@
                   <th>Alamat</th>
                   <th>No. HP</th>
                   <th>Email</th>
-                  <th>Username</th>
                   <th>aksi</th>
                 </tr>
               </thead>
@@ -27,12 +26,6 @@
                   <td>{{ $data->alamat }}</td>
                   <td>{{ $data->no_tlp }}</td>
                   <td>{{ $data->email }}</td>
-                  <td>@if(!empty($data->username))
-                      {{ $data->username }}
-                      @else
-                      Belum Daftar
-                      @endif
-                  </td>
                   <td>
                     <a href="data-tamu/edit/{{ $data->id_tamu }}">edit data</a>
                     <a href="data-tamu/hapus/{{ $data->id_tamu }}" onclick="return confirm('apakah yakin anda akan menghapus ini ?')">hapus data</a>

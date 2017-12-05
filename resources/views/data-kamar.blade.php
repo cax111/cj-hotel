@@ -33,7 +33,7 @@
               </tbody>
             </table>
           </div>
-          <h1 class="page-header">Jenis Kamar<span class="col-sm-offset-8"><a href="data-kamar/tambah" class="btn btn-primary">Tambah data</a></span></h1>
+          <h1 class="page-header">Jenis Kamar<span class="col-sm-offset-8"><a href="data-kamar/tambah-jenis" class="btn btn-primary">Tambah data</a></span></h1>
           <!-- <h2 class="sub-header"></h2> -->
           <div class="table-responsive">
             <table class="table">
@@ -50,8 +50,8 @@
                   <td>{{ $data2->id_jenis }}</td>
                   <td>{{ $data2->nama_jenis }}</td>
                   <td>
-                    <a href="data-kamar/edit/{{ $data2->id_kamar }}">edit data</a>
-                    <a href="data-kamar/hapus/{{ $data2->id_kamar }}" onclick="return confirm('apakah yakin anda akan menghapus ini ?')">hapus data</a>
+                    <a href="data-kamar/edit-jenis/{{ $data2->id_jenis }}">edit data</a>
+                    <a href="data-kamar/hapus-jenis/{{ $data2->id_jenis }}" onclick="return confirm('apakah yakin anda akan menghapus ini ?')">hapus data</a>
                   </td>
                 </tr>
               </tbody>

@@ -23,6 +23,8 @@ Route::post('/admin-cj/cek', 'appController@cek');
 Route::get('/admin-cj/data-tamu', 'tamuCrudController@index');
 Route::get('/admin-cj/data-tamu/tambah', 'tamuCrudController@create');
 Route::post('/admin-cj/data-tamu/store', 'tamuCrudController@store');
+Route::get('/admin-cj/data-tamu/edit/{id}', 'tamuCrudController@edit');
+Route::post('/admin-cj/data-tamu/update/{id}', 'tamuCrudController@update');
 Route::get('/admin-cj/data-tamu/hapus/{id}', 'tamuCrudController@destroy');
 //halaman admin data kamar
 Route::get('/admin-cj/data-kamar', 'kamarCrudController@index');
@@ -31,6 +33,13 @@ Route::post('/admin-cj/data-kamar/store', 'kamarCrudController@store');
 Route::get('/admin-cj/data-kamar/edit/{id}', 'kamarCrudController@edit');
 Route::post('/admin-cj/data-kamar/update/{id}', 'kamarCrudController@update');
 Route::get('/admin-cj/data-kamar/hapus/{id}', 'kamarCrudController@destroy');
+//halaman admin data kamar
+Route::get('/admin-cj/data-kamar', 'kamarCrudController@index');
+Route::get('/admin-cj/data-kamar/tambah-jenis', 'kamarCrudController@createJenis');
+Route::post('/admin-cj/data-kamar/store-jenis', 'kamarCrudController@storeJenis');
+Route::get('/admin-cj/data-kamar/edit-jenis/{id}', 'kamarCrudController@editJenis');
+Route::post('/admin-cj/data-kamar/update-jenis/{id}', 'kamarCrudController@updateJenis');
+Route::get('/admin-cj/data-kamar/hapus-jenis/{id}', 'kamarCrudController@destroyJenis');
 
 Route::get('/coba', function () {
     return view('coba');

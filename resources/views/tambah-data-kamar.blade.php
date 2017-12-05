@@ -21,7 +21,7 @@
 				  <input type="text" class="form-control" name="status" value="tersedia" disabled="disabled">
 				  <br/>
 				  <input type="submit" class="btn btn-primary" value="Simpan">
-				  <a href="/admin-cj/data-tamu" class="btn btn-danger">Kembali</a>	
+				  <a href="/admin-cj/data-kamar" class="btn btn-danger">Kembali</a>	
 				</form>
 			  </div>
         </div>
