@@ -14,9 +14,11 @@
 				  	@endforeach
 				  </select>
 				  <label>Harga Sewa/hari</label>
-				  <input type="text" class="form-control" value="{{ $tampiledit->harga_sewa }}" name="hargasewa">
+				  <input type="text" class="form-control" value="{{ $tampiledit->harga_sewa }}" name="hargasewa" required>
+				  <label>Maksimal Penghuni</label>
+				  <input type="text" class="form-control" name="max" value="{{$tampiledit->banyak_tamu}}" maxlength="1" required>
 				  <label>Deskripsi Kamar</label>
-				  <input type="text" class="form-control" value="{{ $tampiledit->deskripsi_kamar }}" name="desc">
+				  <input type="text" class="form-control" value="{{ $tampiledit->deskripsi_kamar }}" name="desc" required>
 				  <label>Status</label>
 				  <input type="text" class="form-control" value="{{ $tampiledit->status }}" name="status" value="tersedia" disabled="disabled">
 				  <br/>

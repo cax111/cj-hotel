@@ -10,6 +10,7 @@
                   <th>ID Kamar</th>
                   <th>Nama Jenis Kamar</th>
                   <th>Harga Sewa</th>
+                  <th>Maksimal penghuni</th>
                   <th>Deskripsi Kamar</th>
                   <th>Status</th>
                   <th>aksi</th>
@@ -21,6 +22,7 @@
                   <td><?php echo e($data->id_kamar); ?></td>
                   <td><?php echo e($data->nama_jenis); ?></td>
                   <td><?php echo e($data->harga_sewa); ?></td>
+                  <td><?php echo e($data->banyak_tamu); ?></td>
                   <td><?php echo e($data->deskripsi_kamar); ?></td>
                   <td><?php echo e($data->status); ?></td>
                   <td>

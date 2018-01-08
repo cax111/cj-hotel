@@ -11,7 +11,7 @@
 				  <input type="text" class="form-control" name="namajenis" value="<?php echo e($tampiledit->nama_jenis); ?>">
 				  <br/>
 				  <input type="submit" class="btn btn-primary" value="Simpan">
-				  <a href="/admin-cj/data-jenis" class="btn btn-danger">Kembali</a>	
+				  <a href="/admin-cj/data-kamar" class="btn btn-danger">Kembali</a>	
 				</form>
 			  </div>
         </div>

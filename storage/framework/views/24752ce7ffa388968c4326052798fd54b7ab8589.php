@@ -41,7 +41,7 @@
           <ul class="nav nav-sidebar">
             <li><a href="/admin-cj/data-tamu">Data Tamu</a></li>
             <li><a href="/admin-cj/data-kamar">Data Kamar</a></li>
-            <li><a href="/admin-cj/data-booking-kamar">Data Reservasi</a></li>
+            <li><a href="/admin-cj/data-reservasi">Data Reservasi</a></li>
             <li><a href="/admin-cj/data-resto">Data Menu Resto</a></li>
             <li><a href="/admin-cj/data-transaksi">Data Transaksi</a></li>
           </ul>

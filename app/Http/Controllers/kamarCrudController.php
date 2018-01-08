@@ -15,11 +15,12 @@ class kamarCrudController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function index(request $request)
-    {
+    public function index()
+    {   
         $datas = kamar::select('*')->join('tb_jenis_kamar','tb_jenis_kamar.id_jenis','=','tb_kamar.id_jenis')->orderBy('id_kamar','DESC')->paginate(14);
         $datas2 = jenisKamar::orderBy('id_jenis','DESC')->paginate(14);
-        return view('data-kamar')->with('datas',$datas)->with('datas2',$datas2);
+        $datas3 = kamar::orderBy('id_kamar','DESC')->first();
+        return view('data-kamar')->with('datas',$datas)->with('datas2',$datas2)->with('datas3',$datas3);
     }
 
     /**
@@ -46,18 +47,12 @@ class kamarCrudController extends Controller
     public function store(Request $request)
     {
         
-        /*$this->validate($request, [
-           'jenis' => 'required',
-           'hargasewa' => 'required',
-           'desc' => 'required',
-           'status' => 'required'
-        ]);*/
-        
-        $datas2 = kamar::orderBy('id_kamar','DESC')->first();
+         $datas2 = kamar::orderBy('id_kamar','DESC')->first();
          $tambah = new kamar();
-         $tambah->id_kamar = $datas2['id_jenis'];
+         $tambah->id_kamar = $datas2['id_kamar']+1;
          $tambah->id_jenis = $request['jenis'];
          $tambah->harga_sewa = $request['hargasewa'];
+         $tambah->banyak_tamu = $request['max'];
          $tambah->deskripsi_kamar = $request['desc'];
          $tambah->status = "tersedia";
          $tambah->save();
@@ -123,11 +118,12 @@ class kamarCrudController extends Controller
     {
         $update = kamar::where('id_kamar', $id)->first();
         $update->harga_sewa = $request['hargasewa'];
+        $update->banyak_tamu = $request['max'];
         $update->deskripsi_kamar = $request['desc'];
-        $update->status = "status";
+        $update->status = "tersedia";
         $update->update();
 
-        return redirect()->to('data-kamar');
+        return redirect()->to('/admin-cj/data-kamar');
     }
 
     public function updateJenis(Request $request, $id)
@@ -136,7 +132,7 @@ class kamarCrudController extends Controller
         $update->nama_jenis = $request['namajenis'];
         $update->update();
 
-        return redirect()->to('data-kamar');
+        return redirect()->to('/admin-cj/data-kamar');
     }
 
     /**

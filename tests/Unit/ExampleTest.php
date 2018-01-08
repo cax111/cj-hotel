@@ -1,13 +1,12 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit; 
 
-use Tests\TestCase;
+use tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
-{
+class ExampleTest extends TestCase{
     /**
      * A basic test example.
      *

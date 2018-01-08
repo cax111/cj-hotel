@@ -50,7 +50,7 @@ class tamuCrudController extends Controller
 
          $datas2 = tamu::orderBy('id_tamu','DESC')->first();
          $tambah = new tamu();
-         $tambah->id_tamu = $datas2['id_jenis']+1;
+         $tambah->id_tamu = $datas2['id_tamu']+1;
          $tambah->no_identitas = $request['noidentitas'];
          $tambah->nama_tamu = $request['nama'];
          $tambah->alamat = $request['alamat'];
@@ -100,7 +100,7 @@ class tamuCrudController extends Controller
         $update->no_tlp = $request['nohp'];
         $update->update();
 
-        return redirect()->to('data-tamu');
+        return redirect()->to('/admin-cj/data-tamu');
     }
 
     /**

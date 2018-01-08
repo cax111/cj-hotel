@@ -3,9 +3,9 @@
           <h1 class="page-header">Dashboard</h1>
            <div class="jumbotron">
             <div class="container">
-              <h1>Hello, world!</h1>
-              <p>Halaman Awal</p>
-              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+              <h1>Selamat Datang</h1>
+              <p>Halaman Awal pada admin</p>
+              <p><a class="btn btn-primary btn-lg" href="data-tamu" role="button">Lihat Data Tamu &raquo;</a></p>
             </div>
            </div>
         </div>

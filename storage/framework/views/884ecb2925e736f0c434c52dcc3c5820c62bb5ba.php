@@ -15,6 +15,8 @@
 				  </select>
 				  <label>Harga Sewa/hari</label>
 				  <input type="text" class="form-control" name="hargasewa">
+				  <label>Maksimal Penghuni</label>
+				  <input type="text" class="form-control" name="max" maxvalue="3" maxlength="1">
 				  <label>Deskripsi Kamar</label>
 				  <input type="text" class="form-control" name="desc">
 				  <label>Status</label>

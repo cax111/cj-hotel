@@ -11,6 +11,7 @@
                   <th>ID Kamar</th>
                   <th>Nama Jenis Kamar</th>
                   <th>Harga Sewa</th>
+                  <th>Maksimal penghuni</th>
                   <th>Deskripsi Kamar</th>
                   <th>Status</th>
                   <th>aksi</th>
@@ -22,6 +23,7 @@
                   <td>{{ $data->id_kamar }}</td>
                   <td>{{ $data->nama_jenis }}</td>
                   <td>{{ $data->harga_sewa }}</td>
+                  <td>{{ $data->banyak_tamu }}</td>
                   <td>{{ $data->deskripsi_kamar }}</td>
                   <td>{{ $data->status }}</td>
                   <td>
