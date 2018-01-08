@@ -14,19 +14,13 @@ class cobaTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
-    {
-    	
-    	$response = $this->call('GET', '/');
-    	$this->assertTrue($response->isOk());
-    }
     public function testAmbil()
     {
     	$a="host=localhost port=5432 dbname=reservasi_hotel_db user=postgres password=werasa";
     	$connect=pg_connect($a);
-    	$pg_sql = pg_query($connect, "SELECT * FROM tb_tamu WHERE nama_tamu='Jatnika'");
+    	$pg_sql = pg_query($connect, "SELECT * FROM tb_tamu WHERE nama_tamu='Chakra Bernat Yusuf'");
     	$ambil =pg_fetch_array($pg_sql);
 
-    	$this->assertEquals('Jatnika',$ambil['nama_tamu']);
+    	$this->assertEquals('Chakra Bernat Yusuf',$ambil['nama_tamu']);
     }
 }

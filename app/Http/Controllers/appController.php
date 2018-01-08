@@ -65,8 +65,8 @@ class appController extends Controller
                     ->join($jointamu,'tb_booking.kode_booking','=','tb_booking_kamar.kode_booking')
                     ->join($joinkamar,'tb_kamar.id_kamar','=','tb_booking_kamar.id_kamar')
                     ->where('tb_kamar.id_kamar',$request['id'])
-                    ->wherebetween('tb_booking.tgl_checkin',[$request['checkin'],$request['checkout']])
-                    ->orWherebetween('tb_booking.tgl_checkout',[$request['checkin'],$request['checkout']])
+                    ->where('tb_booking.tgl_checkin','>=',$request['checkin'])
+                    ->where('tb_booking.tgl_checkin','<=',$request['checkout'])
                     ->orWhere('tb_booking.tgl_checkin','<=',$request['checkin'])
                     ->where('tb_booking.tgl_checkout','>=',$request['checkout'])
                     ->orderBy('tgl_booking','DESC')->paginate(6);
