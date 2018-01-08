@@ -7,7 +7,7 @@ before_script:
   - cp .env.travis .env  
   - psql -c 'create database reservasi_hotel_db_test;' -U postgres
   - composer self-update
-  - conposer install --no-interaction  
+  - composer install --no-interaction  
 
 script:
   - vendor/bin/phpunit
