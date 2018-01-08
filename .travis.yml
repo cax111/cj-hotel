@@ -8,6 +8,8 @@ before_script:
   - psql -c 'create database reservasi_hotel_db_test;' -U postgres
   - composer self-update
   - composer install --no-interaction  
-
+  - php artisan key:generate
+  -sudo chmod 777 -R PATH_TO/vendor
+  -sudo chmod 777 PATH_TO/vendor/phpunit/phpunit
 script:
   - vendor/bin/phpunit
