@@ -40,8 +40,10 @@ Route::get('/rooms', 'appController@rooms');
 Route::get('/resto', 'appController@resto');
 Route::get('/about', 'appController@about');
 //halaman admin
-Route::get('/admin-cj/', 'appController@indexAdmin');
-Route::get('/admin-cj/login', 'appController@login');
+Route::get('/admin-cj', 'appController@indexAdmin');
+Route::get('/login-admin-cj', 'appController@loginAdmin');
+Route::post('/cek-admin', 'appController@cekAdmin');
+Route::any('/logout-admin', 'appController@logoutAdmin');
 //halaman admin data tamu
 Route::get('/admin-cj/data-tamu', 'tamuCrudController@index');
 Route::get('/admin-cj/data-tamu/tambah', 'tamuCrudController@create');

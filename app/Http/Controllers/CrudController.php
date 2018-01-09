@@ -12,12 +12,11 @@ class tamuCrudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
     public function index(request $request)
     {
-        $datas = kamar::orderBy('id_kamar','DESC')->paginate(14);
-        $sesi = $request->session()->put('id-kamar',$datas['id_kamar']);
-        return view('data-kamar')->with('datas',$datas);
+        $datas = tamu::orderBy('id_tamu','DESC')->paginate(14);
+       // $sesi = $request->session()->put('id-tamu',$datas['id_tamu']);
+        return view('data-tamu')->with('datas',$datas);
     }
 
     /**
@@ -48,11 +47,10 @@ class tamuCrudController extends Controller
            'username' => 'required'
         ]);
 */      
-         $tambah = new akun();
-         $tambah->email = $request['email'];
-         $tambah->save();
+
+         $datas2 = tamu::orderBy('id_tamu','DESC')->first();
          $tambah = new tamu();
-         $tambah->id_tamu = $sesi+1;
+         $tambah->id_tamu = $datas2['id_tamu']+1;
          $tambah->no_identitas = $request['noidentitas'];
          $tambah->nama_tamu = $request['nama'];
          $tambah->alamat = $request['alamat'];
@@ -82,7 +80,8 @@ class tamuCrudController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tampiledit = tamu::where('id_tamu', $id)->first();
+        return view('edit-data-tamu')->with('tampiledit',$tampiledit);
     }
 
     /**
@@ -94,7 +93,14 @@ class tamuCrudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = tamu::where('id_tamu', $id)->first();
+        $update->no_identitas = $request['noidentitas'];
+        $update->nama_tamu = $request['nama'];
+        $update->alamat = $request['alamat'];
+        $update->no_tlp = $request['nohp'];
+        $update->update();
+
+        return redirect()->to('/admin-cj/data-tamu');
     }
 
     /**

@@ -386,7 +386,7 @@ class appController extends Controller
         $update->password = bcrypt($request['passbaru']);
         $update->token_get = '';
         $update->update();
-        return vredirect()->to('login-user');
+        return redirect()->to('login-user');
       }
       return back()->withErrors();
    }
@@ -395,10 +395,39 @@ class appController extends Controller
 //=====================================admin=====================================================
    public function indexAdmin(request $request)
    {
-      /*$sesi = $request->session()->get('email');
-      if(empty($sesi)){
-        return redirect()->to('/admin-cj/login');
-      }*/
-      return view('dashboard');
+      
+      $s =$request->session()->get('username-admin-cj');
+       if(isset($s)){
+        return view('dashboard');
+       }else{
+        return redirect()->to('/login-admin-cj');
+       }
+   }
+   public function loginAdmin(request $request)
+   {
+      
+      
+        return view('login');
+   }
+
+   public function cekAdmin(request $request)
+   {
+    $this->validate($request, [
+      'username-cj' => 'required',
+      'password-cj' => 'required'
+    ]);
+    if($request['username-cj']=="admin" && $request['password-cj'] == "admin"){
+      $request->session()->put('username-admin-cj',$request['username-cj']);
+      return redirect()->to('/admin-cj');
+    }else{
+      $error="Email / Password anda salah";
+      return back()->with('error',$error);
+    }  
+    return back()->withErrors();
+   }
+   public function logoutAdmin(request $request)
+   {
+       $request->session()->flush();
+       return redirect()->to('/login-admin-cj');
    }
 }

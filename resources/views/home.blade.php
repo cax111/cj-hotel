@@ -57,7 +57,7 @@
 										<br/>
 									</div>
 									<div class="col-md-2">
-										<input type="submit" class="form-control btn btn-primary" name="ok" value="Lanjut">	
+										<button class="form-control btn btn-primary dusk" name="okee">Lanjut</button>	
 									</div>
 								</div>
 							</form>

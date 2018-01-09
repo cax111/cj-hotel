@@ -22,10 +22,12 @@
           <a class="navbar-brand" href="/admin-cj">Admin CJ Hotel</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <!-- <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">logout</a></li>
-          </ul> -->
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout">LOGOUT</a></li>
+            <li><a href="/rooms">ROOMS</a></li>
+            <li><a href="/resto">RESTO</a></li>
+            <li><a href="/about">ABOUT US</a></li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -42,8 +44,6 @@
             <li><a href="/admin-cj/data-tamu">Data Tamu</a></li>
             <li><a href="/admin-cj/data-kamar">Data Kamar</a></li>
             <li><a href="/admin-cj/data-reservasi">Data Reservasi</a></li>
-            <li><a href="/admin-cj/data-resto">Data Menu Resto</a></li>
-            <li><a href="/admin-cj/data-transaksi">Data Transaksi</a></li>
           </ul>
         </div>
           <?php echo $__env->yieldContent('content'); ?>
